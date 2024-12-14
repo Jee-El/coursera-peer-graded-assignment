@@ -1,0 +1,15 @@
+all: README.md
+
+README.md: guessinggame.sh
+	echo "# Guessing Game Project" > README.md
+	echo "" >> README.md
+	echo "## Project Details" >> README.md
+	echo "Generated on: $$(date '+%Y-%m-%d %H:%M:%S')" >> README.md
+	echo "" >> README.md
+	echo "### Lines of Code" >> README.md
+	echo "$$(grep -v '^\s*$$' guessinggame.sh | wc -l) lines of code in guessinggame.sh" >> README.md
+
+clean:
+	rm -f README.md
+
+.PHONY: all clean
